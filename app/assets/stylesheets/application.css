@@ -16,3 +16,33 @@
 
 @import "font-awesome-sprockets";
 @import "font-awesome";
+
+.sign-btn {
+  color: #fff;
+  background-color: #28a745;
+  border: none;
+  margin-top: 8px;
+  margin-bottom: 10px;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+.sign-btn-in {
+  color: #fff;
+  background-color: #007bff;;
+  border: none;
+  margin-top: 8px;
+  margin-bottom: 10px;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+.sign-btn-update {
+  color: #fff;
+  background-color: #6c757d;
+  border: none;
+  margin-top: 8px;
+  margin-bottom: 10px;
+  padding: 5px;
+  border-radius: 3px;
+}
