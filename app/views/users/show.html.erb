@@ -19,7 +19,10 @@
             </table>
             <div class="row">
 
-              <a class="btn btn-outline-secondary btn-brock fas fa-user-cog" href="edit_user_path"></a>
+　　　　　　　<%= link_to "edit_user_path(@User.id), method: :edit" do %>
+　　　　　　　<i class="fas fa-user-cog"></i>
+　　　　　　　<% end %>
+
 
             </div>
             <h2 class="mt-3">New book</h2>

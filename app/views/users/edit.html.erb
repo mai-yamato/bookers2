@@ -14,7 +14,11 @@
   </div>
 
   <div class="field">
-    <%= f.label :Image %><br />
+    <% if @user.image? %>
+    <%= image_tag @user.image.url %>
+    <% else %>
+    <%= image_tag "no_image.gif" %>
+    <% end %>
 
   </div>
 

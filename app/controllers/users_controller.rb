@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+
   end
 
 
@@ -17,6 +18,11 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    edit_user(name: user_params[:name], introduction: user_params[:introduction], user_id: current_user.id)
+  end
+
+  def new
+    new_user_registration(name: user_params[:name], introduction: user_params[:introduction], user_id: current_user.id)
   end
 
 end
@@ -24,6 +30,6 @@ end
 private
 
   def user_params
-    params.require(:user).permit(:name, :profile_image, :introduction)
+    params.require(:user).permit(:name, :profile_image, :image, :introduction)
   end
 
