@@ -5,9 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
    has_many :books, dependent: :destroy
-   attachment :profile_image
-   mount_uploader :image, ImageUploader
+   #attachment :name, :image, :introduction
+   #mount_uploader :image, ImageUploader
 
-  
+
 
 end

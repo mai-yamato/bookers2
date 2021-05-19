@@ -6,21 +6,18 @@
 <h2>User info</h2>
 
 <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+
 
   <div class="field">
     <%= f.label :Name %><br />
     <%= f.text_field :name, autofocus: true %>
   </div>
 
-  <div class="field">
-    <% if @user.image? %>
-    <%= image_tag @user.image.url %>
-    <% else %>
-    <%= image_tag "no_image.gif" %>
-    <% end %>
 
-  </div>
+  <!--<div class="field">-->
+  <!--  < %= image_tag @user.image.url %>-->
+  <!--  < %= image_tag "no_image.gif" %>-->
+  <!--</div>-->
 
   <div class="field">
     <%= f.label :Introduction %><br />
@@ -29,11 +26,11 @@
 
 
   <div class="actions">
-    <%= f.submit "Update user", class: 'sign-btn-update' %>
+    <%= link_to 'Update user', user_path, class: 'btn btn-success btn-sm sign-btn-update' %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+
 
     </div>
   </div>
