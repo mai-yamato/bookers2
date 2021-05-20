@@ -24,7 +24,7 @@
         <%= link_to "", edit_user_path(@user), class:"btn btn-primary col-12 fas fa-user-cog"%>
       </div>
       <h2>New book</h2>
-      <%= form_with model: @newbook, url: books_path, id: 'new_book', class: 'new_book', local: true do |f| %>
+      <%= form_with model: @book, url: books_path, id: 'new_book', class: 'new_book', local: true do |f| %>
         <div class="field">
         <%= f.label :Title %><br />
         <%= f.text_field :title, autofocus: true %>
@@ -41,20 +41,19 @@
       <% end %>
     </div>
     <div class="col-md-8 offset-md-1">
-      <h2>Book detail</h2>
+      <h2>Books</h2>
       <table class="table">
+        <% @books.each do |book| %>
         <div>
-
+          <%= attachment_image_tag user, :image %>
             <tr>
-              <td><%= attachment_image_tag @user, :profile_image %>
-                  <%= @user.name %></td>
-              <td><%= @book.title %></td>
-              <td><%= @book.opinion %></td>
-              <!--if文-->
-              <td><%= link_to "show", book_path(@book) %></td>
-              <td><%= link_to "destroy", book_path(@book), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+              <td><%= profile_image_tag('no_image.jpg') %></td>
+              <td><%= user.name %></td>
+              <td><%= link_to "show", book_path %></td>
+              <td><%= link_to "destroy", book_path(@books), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
             </tr>
         </div>
+        <% end %>
       </table>
     </div>
   </div>

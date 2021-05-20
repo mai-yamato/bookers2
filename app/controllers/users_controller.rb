@@ -3,11 +3,19 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @users = User.find(current_user.id)
-
+    @book = Book.new
   end
 
 
   def index
+    @users = User.all
+    @user = current_user
+    @book = Book.new
+
+  end
+
+  def create
+    redirect_to books_path
   end
 
   def update
@@ -23,7 +31,7 @@ class UsersController < ApplicationController
   end
 
   def new
-    new_user_registration(name: user_params[:name], introduction: user_params[:introduction], user_id: current_user.id)
+
   end
 
 end
@@ -31,6 +39,6 @@ end
 private
 
   def user_params
-    params.require(:user).permit(:name, :introduction, :profile_image)
+    params.require(:user).permit(:profile_image)
   end
 

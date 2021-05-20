@@ -13,11 +13,9 @@
     <%= f.text_field :name, autofocus: true %>
   </div>
 
-
-  <!--<div class="field">-->
-  <!--  < %= image_tag @user.image.url %>-->
-  <!--  < %= image_tag "no_image.gif" %>-->
-  <!--</div>-->
+　<div class="field">
+  <%= f.attachment_field :profile_image %>
+  </div>
 
   <div class="field">
     <%= f.label :Introduction %><br />
