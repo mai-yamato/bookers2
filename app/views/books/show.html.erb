@@ -44,15 +44,15 @@
       <h2>Book detail</h2>
       <table class="table">
         <div>
-
             <tr>
               <td><%= attachment_image_tag @user, :profile_image %>
                   <%= @user.name %></td>
               <td><%= @book.title %></td>
               <td><%= @book.opinion %></td>
-              <!--if文-->
-              <td><%= link_to "show", book_path(@book) %></td>
+              <% if user_signed_in? && current_user.id == @book.user_id %>
+              <td><%= link_to 'edit', edit_book_path(@book), method: :edit, class: 'btn btn-info btn-sm btn-block mb-3 edit' %></td>
               <td><%= link_to "destroy", book_path(@book), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+            　<% end %>
             </tr>
         </div>
       </table>
