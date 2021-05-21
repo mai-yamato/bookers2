@@ -32,7 +32,7 @@
 
         <div class="field">
         <%= f.label :Opinion %><br />
-        <%= f.text_field :opinion, autofocus: true %>
+        <%= f.text_field :body, autofocus: true %>
         </div>
 
         <div class="actions">
@@ -45,10 +45,9 @@
       <table class="table">
         <% @users.each do |user| %>
         <div>
-          <%= attachment_image_tag user, :profile_image %>
             <tr>
-              <td><%= image_tag('no_image.jpg') %></td>
-              <td><%= user.name %></td>
+              <td><%= attachment_image_tag user, :profile_image %></td>
+              <td><%= @user.name %></td>
               <td><%= link_to "show", user_path(user) %></td>
             </tr>
         </div>
