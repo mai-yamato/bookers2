@@ -31,21 +31,7 @@
         <%= link_to "", edit_user_path(@user), class:"btn btn-primary col-12 fas fa-user-cog"%>
       </div>
       <h2>New book</h2>
-      <%= form_with model: @newbook, url: books_path, id: 'new_book', class: 'new_book', local: true do |f| %>
-        <div class="field">
-        <%= f.label :Title %><br />
-        <%= f.text_field :title, autofocus: true %>
-        </div>
-
-        <div class="field">
-        <%= f.label :Opinion %><br />
-        <%= f.text_field :body, autofocus: true %>
-        </div>
-
-        <div class="actions">
-        <%= f.submit "Create Book", class: 'btn book-btn' %>
-        </div>
-      <% end %>
+      <%= render "/books/book", newbook: @book %>
     </div>
     <div class="col-md-8 offset-md-1">
       <h2>Books</h2>

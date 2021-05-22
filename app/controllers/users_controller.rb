@@ -10,21 +10,11 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    @user = User.find(params[:id])
+    @user = current_user
     @book = Book.new
 
   end
 
-  def create
-    redirect_to books_path
-    @user = User.new(user_params)
-    if @book.save
-      redirect_to user_path
-    else
-      render :new
-    end
-
-  end
 
 
   def update
@@ -39,15 +29,13 @@ class UsersController < ApplicationController
 
   end
 
-  def new
 
-  end
 
 end
 
 private
 
   def user_params
-    params.require(:user).permit(:profile_image)
+    params.require(:user).permit(:name, :introduction, :profile_image)
   end
 

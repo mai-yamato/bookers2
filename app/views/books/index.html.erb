@@ -24,21 +24,7 @@
         <%= link_to "", edit_user_path(@users), class:"btn btn-primary col-12 fas fa-user-cog"%>
       </div>
       <h2>New book</h2>
-      <%= form_with model: @newbook, url: books_path, id: 'new_book', class: 'new_book', local: true do |f| %>
-        <div class="field">
-        <%= f.label :Title %><br />
-        <%= f.text_field :title, autofocus: true %>
-        </div>
-
-        <div class="field">
-        <%= f.label :Opinion %><br />
-        <%= f.text_field :body, autofocus: true %>
-        </div>
-
-        <div class="actions">
-        <%= f.submit "Create Book", class: 'btn book-btn' %>
-        </div>
-      <% end %>
+      <%= render "/books/book", newbook: @newbook %>
     </div>
     <div class="col-md-8 offset-md-1">
       <h2>Books</h2>
@@ -51,7 +37,7 @@
         <% @books.each do |book| %>
         <ty>
           <td><%= attachment_image_tag @user, :profile_image, :fill, 90, 90, fallback: "no_image.jpg"%><br>
-              <%= @user.name %></td>
+              <%= link_to user_path(@user.name), @user %></td>
           <td><%= link_to book.title, book_path(book) %></td>
           <td><%= book.body %></td>
         </tr>

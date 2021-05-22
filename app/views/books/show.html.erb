@@ -24,21 +24,7 @@
         <%= link_to "", edit_user_path(@user), class:"btn btn-primary col-12 fas fa-user-cog"%>
       </div>
       <h2>New book</h2>
-      <%= form_with model: @newbook, url: books_path, id: 'new_book', class: 'new_book', local: true do |f| %>
-        <div class="field">
-        <%= f.label :Title %><br />
-        <%= f.text_field :title, autofocus: true %>
-        </div>
-
-        <div class="field">
-        <%= f.label :Opinion %><br />
-        <%= f.text_field :body, autofocus: true %>
-        </div>
-
-        <div class="actions">
-        <%= f.submit "Create Book", class: 'btn book-btn' %>
-        </div>
-      <% end %>
+        <%= render "/books/book", newbook: @newbook %>
     </div>
     <div class="col-md-8 offset-md-1">
       <h2>Book detail</h2>
@@ -47,11 +33,11 @@
           <tr>
           <td><%= attachment_image_tag @user, :profile_image %><br>
               <%= @user.name %></td>
-          <td><%= link_to @book.title, book_path(book) %></td>
+          <td><%= link_to @book.title, book_path(@book) %></td>
           <td><%= @book.body %></td>
               <% if @book.user == current_user %>
-          <td><%= link_to "Edit", edit_book_path(book), method: :edit, class: 'btn btn-sm btn-success edit' %></td>
-          <td><%= link_to "Destroy", book_path(book), method: :delete, class: 'btn btn-sm btn-danger', "data-confirm" => "本当に削除しますか？" %></td>
+          <td><%= link_to "Edit", edit_book_path(@book), method: :edit, class: 'btn btn-sm btn-success edit' %></td>
+          <td><%= link_to "Destroy", book_path(@book), method: :delete, class: 'btn btn-sm btn-danger', "data-confirm" => "本当に削除しますか？" %></td>
               <% end %>
           </tr>
         </div>

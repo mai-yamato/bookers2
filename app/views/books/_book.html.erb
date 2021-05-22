@@ -1,0 +1,15 @@
+<%= form_with model: newbook, local: true do |f| %>
+  <div class="field">
+    <%= f.label :Title %><br />
+    <%= f.text_field :title, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Opinion %><br />
+    <%= f.text_field :body, autofocus: true %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
