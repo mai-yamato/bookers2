@@ -1,9 +1,18 @@
 <p id="notoce"></p>
+<% if @book.errors.any? %>
+<%= @book.errors.count %>error
+  <% @book.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
+
+
 <div class="container px-5 px-sm-0">
   <div class="row">
     <div class="col-md-3">
       <h2>User info</h2>
       <img class="">
+
       <table class="table">
         <tbody>
           <tr>
@@ -24,7 +33,7 @@
         <%= link_to "", edit_user_path(@users), class:"btn btn-primary col-12 fas fa-user-cog"%>
       </div>
       <h2>New book</h2>
-      <%= render "/books/book", newbook: @newbook %>
+      <%= render "/books/book", newbook: @book %>
     </div>
     <div class="col-md-8 offset-md-1">
       <h2>Books</h2>
@@ -36,8 +45,10 @@
         </tr>
         <% @books.each do |book| %>
         <ty>
-          <td><%= attachment_image_tag @user, :profile_image, :fill, 90, 90, fallback: "no_image.jpg"%><br>
-              <%= link_to user_path(@user.name), @user %></td>
+          <td><%= attachment_image_tag book.user, :profile_image, :fill, 90, 90, fallback: "no_image.jpg"%><br>
+              <%= link_to user_path(book.user) do %>
+              <%= book.user.name %></td>
+              <% end %>
           <td><%= link_to book.title, book_path(book) %></td>
           <td><%= book.body %></td>
         </tr>

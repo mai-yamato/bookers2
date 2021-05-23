@@ -5,7 +5,9 @@
 
 <h2>User info</h2>
 
+
 <%= form_with model: @user, local: true do |f| %>
+
 
 
   <div class="field">
@@ -24,7 +26,7 @@
 
 
   <div class="actions">
-    <%= link_to 'Update user', user_path, class: 'btn btn-success btn-sm sign-btn-update' %>
+    <%= f.submit "Update user", class: 'btn btn-success btn-sm sign-btn-update' %>
   </div>
 <% end %>
 

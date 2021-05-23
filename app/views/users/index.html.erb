@@ -30,13 +30,11 @@
       <h2>Users</h2>
       <table class="table">
         <% @users.each do |user| %>
-        <div>
-            <tr>
-              <td><%= attachment_image_tag user, :profile_image %></td>
-              <td><%= user.name %></td>
-              <td><%= link_to "show", user_path(user) %></td>
-            </tr>
-        </div>
+          <ty>
+          <td><%= attachment_image_tag user, :profile_image, :fill, 90, 90, fallback: "no_image.jpg"%></td>
+          <td><%= user.name %></td>
+          <td><%= link_to "show", user_path(user) %></td>
+        </tr>
         <% end %>
       </table>
     </div>
