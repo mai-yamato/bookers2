@@ -72,3 +72,5 @@ gem 'jquery-rails'
 gem 'carrierwave'
 
 gem 'rinku'
+
+gem 'font-awesome-sass', '~> 5.13'

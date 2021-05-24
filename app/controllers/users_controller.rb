@@ -27,9 +27,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @users = User.find(current_user.id)
     @book = Book.new
-    @newbook = Book.all
+    @books = @user.books
+
   end
 
 
@@ -37,6 +37,7 @@ class UsersController < ApplicationController
     @users = User.all
     @user = current_user
     @book = Book.new
+    @books =Book.all
 
   end
 
@@ -50,7 +51,7 @@ private
   def correct_user
         @user = User.find(params[:id])
     unless @user.id == current_user.id
-      redirect_to users_path
+      redirect_to user_path(current_user.id)
     end
   end
 
