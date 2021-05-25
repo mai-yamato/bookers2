@@ -30,7 +30,7 @@
       </table>
 
       <div class="row">
-        <%= link_to "", edit_user_path(@user), class:"btn btn-primary col-12 fas fa-user-cog" %>
+        <%= link_to "", edit_user_path(@user), class:"btn btn-outline-dark col-12 fas fa-user-cog" %>
       </div>
       <h2>New book</h2>
       <%= render "/books/book", newbook: @book %>
@@ -45,7 +45,7 @@
         </tr>
         <% @books.each do |book| %>
         <ty>
-          <td><%= attachment_image_tag book.user, :profile_image, :fill, 90, 90, fallback: "no_image.jpg"%><br>
+          <td><%= attachment_image_tag book.user, :profile_image, :fill, 30, 30, fallback: "no_image.jpg"%><br>
               <%= link_to user_path(book.user) do %>
               <%= book.user.name %></td>
               <% end %>
